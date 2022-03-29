@@ -1,4 +1,6 @@
+// Import FontAwesome Icons
 import { FaGithub } from "react-icons/fa";
+// Import Feather Icons
 import { FiX } from "react-icons/fi";
 
 import styles from "./styles.module.scss";
@@ -14,6 +16,7 @@ export function SignInButton() {
     </button>
   ) : (
     <button type="button" className={styles.signInButton}>
+      {/* Github Icon with color set */}
       <FaGithub color="#eba417" />
       Sign in with Github
     </button>

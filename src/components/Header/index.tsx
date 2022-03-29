@@ -12,6 +12,7 @@ export function Header() {
           </a>
           <a href="#">Posts</a>
         </nav>
+        {/* GitHub Sign in Button */}
         <SignInButton />
       </div>
     </header>

@@ -26,7 +26,7 @@ export default function Home({ product }: HomeProps) {
             News about the <span>React</span> World
           </h1>
           <p>
-            Get acess to all the publications{" "}
+            Get access to all the publications
             <span>for {product.amount} a month</span>
           </p>
           <SubscribeButton priceId={product.priceId} />
@@ -37,11 +37,14 @@ export default function Home({ product }: HomeProps) {
   );
 }
 
+// Creates a SSG variable that is only updated once every 24 hours.
 export const getStaticProps: GetStaticProps = async () => {
+  // Retrieves the current price of product from stripe
   const price = await stripe.prices.retrieve("price_1KiTK0HDeVM77lK1UhZRvCVw", {
     expand: ["product"],
   });
 
+  // Converted into an object
   const product = {
     priceId: price.id,
     amount: new Intl.NumberFormat("en-US", {
@@ -54,6 +57,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       product,
     },
+    // When to update again.
     revalidate: 60 * 60 * 24, // 24 hours
   };
 };
