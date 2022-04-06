@@ -1,3 +1,4 @@
+// Stripe Backend
 import Stripe from "stripe";
 
 // Configuration of stripe with private key
