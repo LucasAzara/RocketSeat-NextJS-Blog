@@ -36,3 +36,6 @@ yarn-error.log*
 
 # Workspace
 RocketSeat-NextJS-Blog.code-workspace
+
+# Exe files
+*.exe
