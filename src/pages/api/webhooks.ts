@@ -26,8 +26,8 @@ export const config = {
 // List of events that are wanted
 const relevantEvents = new Set([
   "checkout.session.completed",
-  "customer.subscriptions.updated",
-  "customer.subscriptions.deleted",
+  "customer.subscription.updated",
+  "customer.subscription.deleted",
 ]);
 
 const Webhooks = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -62,12 +62,11 @@ const Webhooks = async (req: NextApiRequest, res: NextApiResponse) => {
             // event.data.object as type Stripe.Subscription
             const subscription = event.data.object as Stripe.Subscription;
 
-            console.log(subscription);
-
             await saveSubscription(
               subscription.id,
               subscription.customer.toString()
             );
+            break;
 
           case "checkout.session.completed":
             // event.data.object as type Stripe.Checkout.Session to be easier to see which methods are available when coding
