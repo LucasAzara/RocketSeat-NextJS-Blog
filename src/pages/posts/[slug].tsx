@@ -42,13 +42,21 @@ export const getServerSideProps: GetServerSideProps = async ({
   // Getting user session information
   const session = await getSession({ req });
 
+  console.log(session);
+
   // Get Slug from post
   const { slug } = params;
 
   // If user is not logged in
-  // if(!session){
-
-  // }
+  if (!session?.activeSub) {
+    // return to homepage
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
 
   // Get Client from Prismic
   const prismic = getPrismicClient(req);
