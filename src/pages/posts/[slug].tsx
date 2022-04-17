@@ -42,8 +42,6 @@ export const getServerSideProps: GetServerSideProps = async ({
   // Getting user session information
   const session = await getSession({ req });
 
-  console.log(session);
-
   // Get Slug from post
   const { slug } = params;
 

@@ -17,6 +17,8 @@ export function ActiveLink({
   // Current page
   const asPath = useRouter();
 
+  console.log(asPath, " ", rest);
+
   // Set Current Active Link
   const className = asPath.route == rest.href ? activeClassName : "";
 
